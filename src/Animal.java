@@ -16,11 +16,11 @@ public class Animal {
         public AnimalBuilder(String type){
             this.type = type;
         }
-        public Animal.AnimalBuilder isHasEyeColor(String eyeColor){
+        public Animal.AnimalBuilder SetEyeColor(String eyeColor){
             this.eyeColor = eyeColor;
             return this;
         }
-        public Animal.AnimalBuilder isHasFur(boolean hasFur){
+        public Animal.AnimalBuilder SetFur(boolean hasFur){
             this.hasFur = hasFur;
             return this;
         }

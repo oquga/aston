@@ -16,11 +16,11 @@ public class Human{
         public HumanBuilder(String surname){
             this.surname = surname;
         }
-        public HumanBuilder isHasGender(String gender){
+        public HumanBuilder SetGender(String gender){
             this.gender = gender;
             return this;
         }
-        public HumanBuilder isHasAge(int age){
+        public HumanBuilder SetAge(int age){
             this.age = age;
             return this;
         }

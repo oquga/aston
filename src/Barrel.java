@@ -1,27 +1,27 @@
 public class Barrel {
     private double volume;
-    private String madeOf;
-    private String contains;
+    private String material;
+    private String content;
     private Barrel(Barrel.BarrelBuilder barrelBuilder){
         volume = barrelBuilder.volume;
-        madeOf = barrelBuilder.madeOf;
-        contains = barrelBuilder.contains;
+        material = barrelBuilder.material;
+        content = barrelBuilder.content;
         //this.findStrategy = new BarrelFindStrategy();
     }
 
     public static class BarrelBuilder{
         private double volume;
-        private String madeOf;
-        private String contains;
+        private String material;
+        private String content;
         public BarrelBuilder(double volume){
             this.volume = volume;
         }
-        public Barrel.BarrelBuilder isHasMadeOf(String madeOf){
-            this.madeOf = madeOf;
+        public Barrel.BarrelBuilder SetMadeOf(String material){
+            this.material = material;
             return this;
         }
-        public Barrel.BarrelBuilder isHasContains(String contains){
-            this.contains = contains;
+        public Barrel.BarrelBuilder SetContains(String content){
+            this.content = content;
             return this;
         }
 
@@ -33,11 +33,9 @@ public class Barrel {
         return volume;
     }
 
-    public String getMadeOf() {
-        return madeOf;
-    }
+    public String getMaterial() { return material; }
 
-    public String getContains() {
-        return contains;
+    public String getContent() {
+        return content;
     }
 }
