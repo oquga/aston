@@ -20,7 +20,7 @@ public class Animal {
             this.eyeColor = eyeColor;
             return this;
         }
-        public Animal.AnimalBuilder SetFur(boolean hasFur){
+        public Animal.AnimalBuilder isHasFur(boolean hasFur){
             this.hasFur = hasFur;
             return this;
         }
