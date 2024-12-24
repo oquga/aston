@@ -1,6 +1,30 @@
-import static java.lang.Integer.compare;
+import java.util.Comparator;
 
-public class Human{
+class HumanGenderComparator implements Comparator<Human>{
+    @Override
+    public int compare(Human o1, Human o2) {
+        return o1.getGender().compareTo(o2.getGender());
+    }
+}
+
+class HumanSurnameComparator implements Comparator<Human>{
+    @Override
+    public int compare(Human o1, Human o2) {
+        return o1.getSurname().compareTo(o2.getSurname());
+    }
+}
+class HumanAgeComparator implements Comparator<Human>{
+    @Override
+    public int compare(Human o1, Human o2) {
+        return Integer.compare(o1.getAge(),o2.getAge());
+    }
+}
+
+public class Human {
+
+
+
+
     private String surname;
     private int age;
     private String gender;
@@ -33,12 +57,6 @@ public class Human{
             return new Human(this);
         }
     }
-
-    public int compareAgeTo(Human anotherHuman) {
-        return compare(this.age, anotherHuman.getAge());
-    }
-
-
 
     public String getSurname(){
         return surname;
