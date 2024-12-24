@@ -1,4 +1,27 @@
+import java.util.Comparator;
+
+class BarrelVolumeComparator implements Comparator<Barrel> {
+    @Override
+    public int compare(Barrel o1, Barrel o2) {
+        return Double.compare(o1.getVolume(), o2.getVolume());
+    }
+}
+
+class BarrelMaterialComparator implements Comparator<Barrel> {
+    @Override
+    public int compare(Barrel o1, Barrel o2) {
+        return o1.getMaterial().compareTo(o2.getMaterial());
+    }
+}
+class BarrelContentComparator implements Comparator<Barrel> {
+    @Override
+    public int compare(Barrel o1, Barrel o2) {
+        return o1.getContent().compareTo(o2.getContent());
+    }
+}
+
 public class Barrel {
+
     private double volume;
     private String material;
     private String content;

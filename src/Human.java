@@ -21,10 +21,6 @@ class HumanAgeComparator implements Comparator<Human>{
 }
 
 public class Human {
-
-
-
-
     private String surname;
     private int age;
     private String gender;
