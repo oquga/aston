@@ -14,7 +14,7 @@ public class Main {
                     "Вы ввели:");
             switch (in.nextInt()) {
                 case 1:
-                   File();
+                    File();
                     break;
                 case 2:
                     Manual();
@@ -30,6 +30,7 @@ public class Main {
             }
         }
     }
+
     static private void Manual(){
         Scanner in = new Scanner(System.in);
         ManualReader manualReader = new ManualReader();
@@ -58,6 +59,7 @@ public class Main {
                 Manual();
         }
     }
+
     static private void File() throws IOException{
         Scanner in = new Scanner(System.in);
         FileReader fileReader = new FileReader();
@@ -86,6 +88,7 @@ public class Main {
                 File();
         }
     }
+
     static private void Random(){
         Scanner in = new Scanner(System.in);
         RandomReader randomReader = new RandomReader();

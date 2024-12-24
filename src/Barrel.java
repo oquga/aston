@@ -8,6 +8,20 @@ public class Barrel {
         material = barrelBuilder.material;
         content = barrelBuilder.content;
     }
+    public double getVolume() {
+        return volume;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public String getContent() {
+        return content;
+    }
+    public String toString(){
+        return volume +" "+ material +" "+ content;
+    }
 
     public static class BarrelBuilder {
         private double volume;
@@ -32,19 +46,5 @@ public class Barrel {
         public Barrel build() {
             return new Barrel(this);
         }
-    }
-    public double getVolume() {
-        return volume;
-    }
-
-    public String getMaterial() {
-        return material;
-    }
-
-    public String getContent() {
-        return content;
-    }
-    public String toString(){
-        return volume +" "+ material +" "+ content;
     }
 }

@@ -8,6 +8,20 @@ public class Animal {
         eyeColor = animalBuilder.eyeColor;
         hasFur = animalBuilder.hasFur;
     }
+    public String getType() {
+        return type;
+    }
+
+    public String getEyeColor() {
+        return eyeColor;
+    }
+
+    public boolean getHasFur() {
+        return hasFur;
+    }
+    public String toString(){
+        return type +" "+ eyeColor +" "+ hasFur;
+    }
 
     public static class AnimalBuilder {
         private String type;
@@ -32,19 +46,5 @@ public class Animal {
         public Animal build() {
             return new Animal(this);
         }
-    }
-    public String getType() {
-        return type;
-    }
-
-    public String getEyeColor() {
-        return eyeColor;
-    }
-
-    public boolean getHasFur() {
-        return hasFur;
-    }
-    public String toString(){
-        return type +" "+ eyeColor +" "+ hasFur;
     }
 }
