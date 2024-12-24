@@ -8,6 +8,7 @@ public class Animal {
         eyeColor = animalBuilder.eyeColor;
         hasFur = animalBuilder.hasFur;
     }
+
     public String getType() {
         return type;
     }
@@ -19,8 +20,9 @@ public class Animal {
     public boolean getHasFur() {
         return hasFur;
     }
+
     public String toString(){
-        return type +" "+ eyeColor +" "+ hasFur;
+        return type + " " + eyeColor + " " + hasFur;
     }
 
     public static class AnimalBuilder {
@@ -38,7 +40,7 @@ public class Animal {
             return this;
         }
 
-        public AnimalBuilder isHasFur(boolean hasFur) {
+        public AnimalBuilder setHasFur(boolean hasFur) {
             this.hasFur = hasFur;
             return this;
         }

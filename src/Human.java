@@ -8,6 +8,7 @@ public class Human {
         age = humanBuilder.age;
         gender = humanBuilder.gender;
     }
+
     public String getSurname() {
         return surname;
     }
@@ -19,8 +20,9 @@ public class Human {
     public String getGender() {
         return gender;
     }
+
     public String toString(){
-        return surname + " " + age +" "+ gender;
+        return surname + " " + age + " " + gender;
     }
 
     public static class HumanBuilder {
