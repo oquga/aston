@@ -21,6 +21,10 @@ public class Human {
         return gender;
     }
 
+    public String toString(){
+        return surname + " " + age + " " + gender;
+    }
+
     public static class HumanBuilder {
         private String surname;
         private int age;
