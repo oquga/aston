@@ -9,6 +9,30 @@ public class Barrel {
         content = barrelBuilder.content;
     }
 
+    public static class BarrelBuilder {
+        private double volume;
+        private String material;
+        private String content;
+
+        public BarrelBuilder setVolume(double volume) {
+            this.volume = volume;
+            return this;
+        }
+
+        public BarrelBuilder setMaterial(String material) {
+            this.material = material;
+            return this;
+        }
+
+        public BarrelBuilder setContent(String content) {
+            this.content = content;
+            return this;
+        }
+
+        public Barrel build() {
+            return new Barrel(this);
+        }
+    }
     public double getVolume() {
         return volume;
     }
@@ -20,29 +44,7 @@ public class Barrel {
     public String getContent() {
         return content;
     }
-
-    public static class BarrelBuilder {
-        private double volume;
-        private String material;
-        private String content;
-
-        public BarrelBuilder setVolume(double volume) {
-            this.volume = volume;
-            return this;
-        }
-
-        public Barrel.BarrelBuilder setMaterial(String material) {
-            this.material = material;
-            return this;
-        }
-
-        public Barrel.BarrelBuilder setContent(String content) {
-            this.content = content;
-            return this;
-        }
-
-        public Barrel build() {
-            return new Barrel(this);
-        }
+    public String toString(){
+        return volume +" "+ material +" "+ content;
     }
 }

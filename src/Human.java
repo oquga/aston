@@ -9,18 +9,6 @@ public class Human {
         gender = humanBuilder.gender;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
     public static class HumanBuilder {
         private String surname;
         private int age;
@@ -44,5 +32,19 @@ public class Human {
         public Human build() {
             return new Human(this);
         }
+    }
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+    public String toString(){
+        return surname + " " + age +" "+ gender;
     }
 }

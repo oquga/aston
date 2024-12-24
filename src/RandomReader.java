@@ -27,7 +27,7 @@ public class RandomReader {
             animals.add(new Animal.AnimalBuilder()
                     .setType(type[ran.nextInt(type.length)])
                     .setEyeColor(color[ran.nextInt(color.length)])
-                    .setHasFur(ran.nextBoolean()).build());
+                    .isHasFur(ran.nextBoolean()).build());
         }
         return animals;
     }
@@ -39,7 +39,7 @@ public class RandomReader {
 
         for (int i = 0; i < amount; i++) {
             barrels.add(new Barrel.BarrelBuilder()
-                    .setVolume(ran.nextDouble())
+                    .setVolume((double)Math.round(1.0 + (50.0 - 1.0) * ran.nextDouble()*100d)/100d)
                     .setMaterial(made[ran.nextInt(made.length)])
                     .setContent(cont[ran.nextInt(cont.length)]).build());
         }

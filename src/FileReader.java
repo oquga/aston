@@ -46,7 +46,7 @@ public class FileReader {
                 animals.add(new Animal.AnimalBuilder()
                         .setType(items[0])
                         .setEyeColor(items[1])
-                        .setHasFur(Boolean.parseBoolean(items[2]))
+                        .isHasFur(Boolean.parseBoolean(items[2]))
                         .build());
             }
         }

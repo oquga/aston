@@ -43,15 +43,15 @@ public class Main {
         switch (in.nextInt()){
             case 1:
                 ArrayList<Human> humans = manualReader.ManualHumans(amount);
-                System.out.println(humans);
+                System.out.println(humans.get(0) + " " + humans.get(1));
                 break;
             case 2:
                 ArrayList<Animal> animals = manualReader.ManualAnimals(amount);
-                //System.out.println(animals);
+                System.out.println(animals);
                 break;
             case 3:
                 ArrayList<Barrel> barrels = manualReader.ManualBarrels(amount);
-                //System.out.println(barrels);
+                System.out.println(barrels);
                 break;
             default:
                 System.out.println("Неверный ввод");
@@ -75,11 +75,11 @@ public class Main {
                 break;
             case 2:
                 ArrayList<Animal> animals = fileReader.ReadAnimals(file);
-                //System.out.println(animals);
+                System.out.println(animals);
                 break;
             case 3:
                 ArrayList<Barrel> barrels = fileReader.ReadBarrels(file);
-                //System.out.println(barrels);
+                System.out.println(barrels);
                 break;
             default:
                 System.out.println("Неверный ввод/файл не найден");
@@ -103,11 +103,11 @@ public class Main {
                 break;
             case 2:
                 ArrayList<Animal> animals = randomReader.RandomAnimals(amount);
-                //System.out.println(animals);
+                System.out.println(animals);
                 break;
             case 3:
                 ArrayList<Barrel> barrels = randomReader.RandomBarrels(amount);
-                //System.out.println(barrels);
+                System.out.println(barrels);
                 break;
             default:
                 System.out.println("Неверный ввод");
