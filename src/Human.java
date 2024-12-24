@@ -1,3 +1,5 @@
+import static java.lang.Integer.compare;
+
 public class Human{
     private String surname;
     private int age;
@@ -8,6 +10,8 @@ public class Human{
         gender = humanBuilder.gender;
         //this.findStrategy = new HumanFindStrategy();
     }
+
+
     public static class HumanBuilder{
         private String surname;
         private int age;
@@ -16,11 +20,11 @@ public class Human{
         public HumanBuilder(String surname){
             this.surname = surname;
         }
-        public HumanBuilder SetGender(String gender){
+        public HumanBuilder setGender(String gender){
             this.gender = gender;
             return this;
         }
-        public HumanBuilder SetAge(int age){
+        public HumanBuilder setAge(int age){
             this.age = age;
             return this;
         }
@@ -29,6 +33,12 @@ public class Human{
             return new Human(this);
         }
     }
+
+    public int compareAgeTo(Human anotherHuman) {
+        return compare(this.age, anotherHuman.getAge());
+    }
+
+
 
     public String getSurname(){
         return surname;
