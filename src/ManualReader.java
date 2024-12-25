@@ -11,7 +11,6 @@ public class ManualReader {
         for (int i = 0; i < amount; i++) {
             String[] data = in.nextLine().split(" ");
 
-
             if (data.length != 3) {
                 System.out.println("Ошибка: должно быть 3 поля для человека.");
                 i--;
@@ -85,7 +84,7 @@ public class ManualReader {
             animals.add(new Animal.AnimalBuilder()
                     .setType(data[0])
                     .setEyeColor(data[1])
-                    .setFur(hasFur)
+                    .setHasFur(hasFur)
                     .build());
         }
         return animals;

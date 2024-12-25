@@ -150,7 +150,7 @@ public class FileReader {
                 animals.add(new Animal.AnimalBuilder()
                         .setType(items[0])
                         .setEyeColor(items[1])
-                        .setFur(hasFur)
+                        .setHasFur(hasFur)
                         .build());
             }
         } catch (IOException e) {

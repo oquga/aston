@@ -40,7 +40,7 @@ public class Animal {
             return this;
         }
 
-        public AnimalBuilder setFur(boolean hasFur) {
+        public AnimalBuilder setHasFur(boolean hasFur) {
             this.hasFur = hasFur;
             return this;
         }
