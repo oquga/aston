@@ -36,157 +36,190 @@ public class Main {
         ManualReader manualReader = new ManualReader();
         System.out.println("Сколько записей хотите сделать?:");
         int amount = in.nextInt();
-        System.out.print("Выберите вводимый класс:\n" +
-                "Введите 1 - Human\n" +
-                "Введите 2 - Animal\n" +
-                "Введите 3 - Barrel\n\n" +
-                "Вы ввели:");
-        switch (in.nextInt()){
-            case 1:
-                ArrayList<Human> humans = manualReader.ManualHumans(amount);
-                HumansSort(humans);
-                break;
-            case 2:
-                ArrayList<Animal> animals = manualReader.ManualAnimals(amount);
-                AnimalsSort(animals);
-                break;
-            case 3:
-                ArrayList<Barrel> barrels = manualReader.ManualBarrels(amount);
-                BarrelsSort(barrels);
-                break;
-            default:
-                System.out.println("Неверный ввод");
-                Manual();
+        boolean flag = true;
+        while (flag) {
+            System.out.print("Выберите вводимый класс:\n" +
+                    "Введите 1 - Human\n" +
+                    "Введите 2 - Animal\n" +
+                    "Введите 3 - Barrel\n\n" +
+                    "Вы ввели:");
+            switch (in.nextInt()) {
+                case 1:
+                    ArrayList<Human> humans = manualReader.ManualHumans(amount);
+                    HumansSort(humans);
+                    flag=false;
+                    break;
+                case 2:
+                    ArrayList<Animal> animals = manualReader.ManualAnimals(amount);
+                    AnimalsSort(animals);
+                    flag=false;
+                    break;
+                case 3:
+                    ArrayList<Barrel> barrels = manualReader.ManualBarrels(amount);
+                    BarrelsSort(barrels);
+                    flag=false;
+                    break;
+                default:
+                    System.out.println("Неверный ввод");
+            }
         }
     }
 
     static private void File() throws IOException{
         Scanner in = new Scanner(System.in);
         FileReader fileReader = new FileReader();
-        System.out.println("Путь файла:");
-        String file = in.nextLine();
-        System.out.print("Выберите вводимый класс:\n" +
-                "Введите 1 - Human\n" +
-                "Введите 2 - Animal\n" +
-                "Введите 3 - Barrel\n\n" +
-                "Вы ввели:");
-        switch (in.nextInt()){
-            case 1:
-                ArrayList<Human> humans = fileReader.ReadHumans(file);
-                HumansSort(humans);
-                break;
-            case 2:
-                ArrayList<Animal> animals = fileReader.ReadAnimals(file);
-                AnimalsSort(animals);
-                break;
-            case 3:
-                ArrayList<Barrel> barrels = fileReader.ReadBarrels(file);
-                BarrelsSort(barrels);
-                break;
-            default:
-                System.out.println("Неверный ввод/файл не найден");
-                File();
+        Boolean flag = true;
+        while (flag) {
+            System.out.println("Введите путь к файлу:");
+            String file = in.nextLine();
+            System.out.print("Выберите вводимый класс:\n" +
+                    "Введите 1 - Human\n" +
+                    "Введите 2 - Animal\n" +
+                    "Введите 3 - Barrel\n\n" +
+                    "Вы ввели:");
+            switch (in.nextInt()) {
+                case 1:
+                    ArrayList<Human> humans = fileReader.ReadHumans(file);
+                    HumansSort(humans);
+                    flag=false;
+                    break;
+                case 2:
+                    ArrayList<Animal> animals = fileReader.ReadAnimals(file);
+                    AnimalsSort(animals);
+                    flag=false;
+                    break;
+                case 3:
+                    ArrayList<Barrel> barrels = fileReader.ReadBarrels(file);
+                    BarrelsSort(barrels);
+                    flag=false;
+                    break;
+                default:
+                    System.out.println("Неверный ввод/файл не найден");
+            }
         }
     }
 
     static private void Random(){
         Scanner in = new Scanner(System.in);
         RandomReader randomReader = new RandomReader();
-        System.out.println("Сколько записей хотите сгенерировать?:");
-        int amount = in.nextInt();
-        System.out.print("Выберите вводимый класс:\n" +
-                "Введите 1 - Human\n" +
-                "Введите 2 - Animal\n" +
-                "Введите 3 - Barrel\n\n" +
-                "Вы ввели:");
-        switch (in.nextInt()){
-            case 1:
-                ArrayList<Human> humans = randomReader.RandomHumans(amount);
-                HumansSort(humans);
-                break;
-            case 2:
-                ArrayList<Animal> animals = randomReader.RandomAnimals(amount);
-                AnimalsSort(animals);
-                break;
-            case 3:
-                ArrayList<Barrel> barrels = randomReader.RandomBarrels(amount);
-                BarrelsSort(barrels);
-                break;
-            default:
-                System.out.println("Неверный ввод");
-                Random();
+        Boolean flag = true;
+        while (flag) {
+            System.out.println("Сколько записей хотите сгенерировать?:");
+            int amount = in.nextInt();
+            System.out.print("Выберите вводимый класс:\n" +
+                    "Введите 1 - Human\n" +
+                    "Введите 2 - Animal\n" +
+                    "Введите 3 - Barrel\n\n" +
+                    "Вы ввели:");
+            switch (in.nextInt()) {
+                case 1:
+                    ArrayList<Human> humans = randomReader.RandomHumans(amount);
+                    HumansSort(humans);
+                    flag=false;
+                    break;
+                case 2:
+                    ArrayList<Animal> animals = randomReader.RandomAnimals(amount);
+                    AnimalsSort(animals);
+                    flag=false;
+                    break;
+                case 3:
+                    ArrayList<Barrel> barrels = randomReader.RandomBarrels(amount);
+                    BarrelsSort(barrels);
+                    flag=false;
+                    break;
+                default:
+                    System.out.println("Неверный ввод");
+            }
         }
     }
 
     static private void HumansSort(ArrayList<Human> humans){
         Scanner in = new Scanner(System.in);
         SortHuman sortHuman = new SortHuman();
-        System.out.print("Выберите по какому признаку сортировать:\n" +
-                "Введите 1 - Surname\n" +
-                "Введите 2 - Age\n" +
-                "Введите 3 - Gender\n\n" +
-                "Вы ввели:");
-        switch (in.nextInt()){
-            case 1:
-                System.out.println(sortHuman.HumanSurnameSort(humans));
-                break;
-            case 2:
-                System.out.println(sortHuman.HumanAgeSort(humans));
-                break;
-            case 3:
-                System.out.println(sortHuman.HumanGenderSort(humans));
-                break;
-            default:
-                System.out.println("Неверный выбор");
-                HumansSort(humans);
+        boolean flag = true;
+        while (flag) {
+            System.out.print("Выберите по какому признаку сортировать:\n" +
+                    "Введите 1 - Surname\n" +
+                    "Введите 2 - Age\n" +
+                    "Введите 3 - Gender\n" +
+                    "Введите 4 - В начало\n\n" +
+                    "Вы ввели:");
+            switch (in.nextInt()) {
+                case 1:
+                    System.out.println(sortHuman.HumanSurnameSort(humans));
+                    break;
+                case 2:
+                    System.out.println(sortHuman.HumanAgeSort(humans));
+                    break;
+                case 3:
+                    System.out.println(sortHuman.HumanGenderSort(humans));
+                    break;
+                case 4:
+                     flag=false;
+                     break;
+                default:
+                    System.out.println("Неверный выбор");
+            }
         }
     }
 
     static private void AnimalsSort(ArrayList<Animal> animals){
         Scanner in = new Scanner(System.in);
         SortAnimal sortAnimal = new SortAnimal();
-        System.out.print("Выберите по какому признаку сортировать:\n" +
-                "Введите 1 - Type\n" +
-                "Введите 2 - Eye Color\n" +
-                "Введите 3 - Has Fur\n\n" +
-                "Вы ввели:");
-        switch (in.nextInt()){
-            case 1:
-                System.out.println(sortAnimal.AnimalTypeSort(animals));
-                break;
-            case 2:
-                System.out.println(sortAnimal.AnimalEyeColorSort(animals));
-                break;
-            case 3:
-                System.out.println(sortAnimal.AnimalFurSort(animals));
-                break;
-            default:
-                System.out.println("Неверный выбор");
-                AnimalsSort(animals);
+        boolean flag = true;
+        while (flag) {
+            System.out.print("Выберите по какому признаку сортировать:\n" +
+                    "Введите 1 - Type\n" +
+                    "Введите 2 - Eye Color\n" +
+                    "Введите 3 - Has Fur\n" +
+                    "Введите 4 - В начало\n\n" +
+                    "Вы ввели:");
+            switch (in.nextInt()) {
+                case 1:
+                    System.out.println(sortAnimal.AnimalTypeSort(animals));
+                    break;
+                case 2:
+                    System.out.println(sortAnimal.AnimalEyeColorSort(animals));
+                    break;
+                case 3:
+                    System.out.println(sortAnimal.AnimalFurSort(animals));
+                    break;
+                case 4:
+                    flag=false;
+                    break;
+                default:
+                    System.out.println("Неверный выбор");
+            }
         }
     }
 
-    static private void BarrelsSort(ArrayList<Barrel> barrels){
+    static private void BarrelsSort(ArrayList<Barrel> barrels) {
         Scanner in = new Scanner(System.in);
         SortBarrel sortBarrel = new SortBarrel();
-        System.out.print("Выберите по какому признаку сортировать:\n" +
-                "Введите 1 - Volume\n" +
-                "Введите 2 - Material\n" +
-                "Введите 3 - Content\n\n" +
-                "Вы ввели:");
-        switch (in.nextInt()){
-            case 1:
-                System.out.println(sortBarrel.BarrelVolumeSort(barrels));
-                break;
-            case 2:
-                System.out.println(sortBarrel.BarrelMaterialSort(barrels));
-                break;
-            case 3:
-                System.out.println(sortBarrel.BarrelContentSort(barrels));
-                break;
-            default:
-                System.out.println("Неверный выбор");
-                BarrelsSort(barrels);
+        boolean flag = true;
+        while (flag) {
+            System.out.print("Выберите по какому признаку сортировать:\n" +
+                    "Введите 1 - Volume\n" +
+                    "Введите 2 - Material\n" +
+                    "Введите 3 - Content\n" +
+                    "Введите 4 - В начало\n\n" +
+                    "Вы ввели:");
+            switch (in.nextInt()) {
+                case 1:
+                    System.out.println(sortBarrel.BarrelVolumeSort(barrels));
+                    break;
+                case 2:
+                    System.out.println(sortBarrel.BarrelMaterialSort(barrels));
+                    break;
+                case 3:
+                    System.out.println(sortBarrel.BarrelContentSort(barrels));
+                    break;
+                case 4:
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("Неверный выбор");
+            }
         }
     }
 }

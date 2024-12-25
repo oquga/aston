@@ -19,11 +19,10 @@ public class FileReader {
      
     public ArrayList<Human> ReadHumans(String fileName) {
         ArrayList<Human> humans = new ArrayList<>();
-
          
         if (!isValidPath(fileName)) {
             System.out.println("Неверный путь к файлу: " + fileName);
-            return humans;   
+            return humans;
         }
 
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileName))) {
