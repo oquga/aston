@@ -25,7 +25,7 @@ public class ManualReader {
             animals.add(new Animal.AnimalBuilder()
                     .setType(data[0])
                     .setEyeColor(data[1])
-                    .isHasFur(Boolean.parseBoolean(data[2])).build());
+                    .setFur(Boolean.parseBoolean(data[2])).build());
         }
         return animals;
     }

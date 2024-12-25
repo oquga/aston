@@ -59,7 +59,7 @@ public class Animal {
             return this;
         }
 
-        public AnimalBuilder isHasFur(boolean hasFur) {
+        public AnimalBuilder setFur(boolean hasFur) {
             this.hasFur = hasFur;
             return this;
         }

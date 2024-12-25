@@ -27,7 +27,7 @@ public class RandomReader {
             animals.add(new Animal.AnimalBuilder()
                     .setType(type[ran.nextInt(type.length)])
                     .setEyeColor(color[ran.nextInt(color.length)])
-                    .isHasFur(ran.nextBoolean()).build());
+                    .setFur(ran.nextBoolean()).build());
         }
         return animals;
     }
