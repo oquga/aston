@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ManualReader {
-
     public ArrayList<Human> ManualHumans(int amount){
         ArrayList<Human> humans = new ArrayList<>();
         Scanner in = new Scanner(System.in);

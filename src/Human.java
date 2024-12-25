@@ -1,3 +1,23 @@
+import java.util.Comparator;
+class HumanGenderComparator implements Comparator<Human>{
+    @Override
+    public int compare(Human o1, Human o2) {
+        return o1.getGender().compareTo(o2.getGender());
+    }
+}
+
+class HumanSurnameComparator implements Comparator<Human>{
+    @Override
+    public int compare(Human o1, Human o2) {
+        return o1.getSurname().compareTo(o2.getSurname());
+    }
+}
+class HumanAgeComparator implements Comparator<Human>{
+    @Override
+    public int compare(Human o1, Human o2) {
+        return Integer.compare(o1.getAge(),o2.getAge());
+    }
+}
 public class Human {
     private final String surname;
     private final int age;
@@ -20,7 +40,7 @@ public class Human {
         return gender;
     }
     public String toString(){
-        return surname + " " + age +" "+ gender;
+        return "Surname " +surname + ", Age: " + age +", Gender: "+ gender;
     }
 
     public static class HumanBuilder {
