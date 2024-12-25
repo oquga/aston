@@ -1,24 +1,5 @@
 import java.util.Comparator;
-class AnimalTypeComparator implements Comparator<Animal> {
-    @Override
-    public int compare(Animal o1, Animal o2) {
-        return o1.getType().compareTo(o2.getType());
-    }
-}
 
-class AnimalEyeColorComparator implements Comparator<Animal>{
-    @Override
-    public int compare(Animal o1, Animal o2) {
-        return o1.getEyeColor().compareTo(o2.getEyeColor());
-    }
-}
-
-class AnimalFurComparator implements Comparator<Animal>{
-    @Override
-    public int compare(Animal o1, Animal o2) {
-        return Boolean.compare(o1.getHasFur(),o2.getHasFur());
-    }
-}
 public class Animal {
     private final String type;
     private final String eyeColor;
@@ -67,5 +48,25 @@ public class Animal {
         public Animal build() {
             return new Animal(this);
         }
+    }
+}
+class AnimalTypeComparator implements Comparator<Animal> {
+    @Override
+    public int compare(Animal o1, Animal o2) {
+        return o1.getType().compareTo(o2.getType());
+    }
+}
+
+class AnimalEyeColorComparator implements Comparator<Animal>{
+    @Override
+    public int compare(Animal o1, Animal o2) {
+        return o1.getEyeColor().compareTo(o2.getEyeColor());
+    }
+}
+
+class AnimalFurComparator implements Comparator<Animal>{
+    @Override
+    public int compare(Animal o1, Animal o2) {
+        return Boolean.compare(o1.getHasFur(),o2.getHasFur());
     }
 }
