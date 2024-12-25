@@ -1,9 +1,10 @@
+import java.util.Comparator;
 public class Barrel {
     private final double volume;
     private final String material;
     private final String content;
 
-    private Barrel(Barrel.BarrelBuilder barrelBuilder) {
+    private Barrel(BarrelBuilder barrelBuilder) {
         volume = barrelBuilder.volume;
         material = barrelBuilder.material;
         content = barrelBuilder.content;
@@ -22,7 +23,7 @@ public class Barrel {
     }
   
     public String toString(){
-        return volume +" "+ material +" "+ content;
+        return "Volume: "+volume +", Made of: "+ material +", Contains: "+ content;
     }
 
     public static class BarrelBuilder {
@@ -48,5 +49,24 @@ public class Barrel {
         public Barrel build() {
             return new Barrel(this);
         }
+    }
+}
+class BarrelVolumeComparator implements Comparator<Barrel> {
+    @Override
+    public int compare(Barrel o1, Barrel o2) {
+        return Double.compare(o1.getVolume(), o2.getVolume());
+    }
+}
+
+class BarrelMaterialComparator implements Comparator<Barrel> {
+    @Override
+    public int compare(Barrel o1, Barrel o2) {
+        return o1.getMaterial().compareTo(o2.getMaterial());
+    }
+}
+class BarrelContentComparator implements Comparator<Barrel> {
+    @Override
+    public int compare(Barrel o1, Barrel o2) {
+        return o1.getContent().compareTo(o2.getContent());
     }
 }
