@@ -4,47 +4,58 @@ import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FileReader {
-     
-    private boolean isValidPath(String fileName) {
+
+
+    public boolean isValidPath(String fileName) {
         try {
             Paths.get(fileName);
-            return Files.exists(Paths.get(fileName));   
+            return Files.exists(Paths.get(fileName));
         } catch (InvalidPathException e) {
-            return false;   
+            return false;
         }
     }
 
-     
+
+    private String getFilePathFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        String fileName;
+
+        while (true) {
+            System.out.print("Введите путь к файлу: ");
+            fileName = scanner.nextLine();
+            if (isValidPath(fileName)) {
+                return fileName;
+            } else {
+                System.out.println("Неверный путь к файлу. Пожалуйста, попробуйте снова.");
+            }
+        }
+    }
+
     public ArrayList<Human> ReadHumans(String fileName) {
         ArrayList<Human> humans = new ArrayList<>();
-         
-        if (!isValidPath(fileName)) {
-            System.out.println("Неверный путь к файлу: " + fileName);
-            return humans;
-        }
-
+        int count = 0;
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 var items = line.split(" ");
-
-                 
+                count++;
                 if (items.length != 3) {
-                    System.out.println("Ошибка: строка должна содержать 3 поля для Human.");
+                    System.out.println("Ошибка в "+ count+" элемете файла: строка должна содержать 3 поля для Human.");
                     continue;
                 }
 
                 try {
                     int age = Integer.parseInt(items[1]);
                     if (age < 0 || age > 150) {
-                        System.out.println("Ошибка: возраст должен быть в пределах от 0 до 150.");
+                        System.out.println("Ошибка в "+ count+" элемете файла: возраст должен быть в пределах от 0 до 150.");
                         continue;
                     }
 
                     if (!items[2].equalsIgnoreCase("Male") && !items[2].equalsIgnoreCase("Female")) {
-                        System.out.println("Ошибка: Пол должен быть 'Male' или 'Female'.");
+                        System.out.println("Ошибка в "+ count+" элемете файла: Пол должен быть 'Male' или 'Female'.");
                         continue;
                     }
 
@@ -54,7 +65,7 @@ public class FileReader {
                             .setGender(items[2])
                             .build());
                 } catch (NumberFormatException e) {
-                    System.out.println("Ошибка: возраст должен быть целым числом.");
+                    System.out.println("Ошибка в "+ count+" элемете файла: возраст должен быть целым числом.");
                 }
             }
         } catch (IOException e) {
@@ -63,37 +74,30 @@ public class FileReader {
         return humans;
     }
 
-     
+
+
     public ArrayList<Barrel> ReadBarrels(String fileName) {
         ArrayList<Barrel> barrels = new ArrayList<>();
-
-         
-        if (!isValidPath(fileName)) {
-            System.out.println("Неверный путь к файлу: " + fileName);
-            return barrels;
-        }
-
+        int count = 0;
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 var items = line.split(" ");
-
-                 
+                count++;
                 if (items.length != 3) {
-                    System.out.println("Ошибка: строка должна содержать 3 поля для Barrel.");
+                    System.out.println("Ошибка в "+ count+" элемете файла: строка должна содержать 3 поля для Barrel.");
                     continue;
                 }
 
                 try {
                     double volume = Double.parseDouble(items[0]);
                     if (volume <= 0) {
-                        System.out.println("Ошибка: объем должен быть положительным числом.");
+                        System.out.println("Ошибка в "+ count+" элемете файла: объем должен быть положительным числом.");
                         continue;
                     }
 
-                     
                     if (items[1].isEmpty() || items[2].isEmpty()) {
-                        System.out.println("Ошибка: материал и содержание не могут быть пустыми.");
+                        System.out.println("Ошибка в "+ count+" элемете файла: материал и содержание не могут быть пустыми.");
                         continue;
                     }
 
@@ -103,7 +107,7 @@ public class FileReader {
                             .setContent(items[2])
                             .build());
                 } catch (NumberFormatException e) {
-                    System.out.println("Ошибка: объем должен быть числом.");
+                    System.out.println("Ошибка в "+ count+" элемете файла: объем должен быть числом.");
                 }
             }
         } catch (IOException e) {
@@ -112,36 +116,26 @@ public class FileReader {
         return barrels;
     }
 
-     
     public ArrayList<Animal> ReadAnimals(String fileName) {
         ArrayList<Animal> animals = new ArrayList<>();
-
-         
-        if (!isValidPath(fileName)) {
-            System.out.println("Неверный путь к файлу: " + fileName);
-            return animals;
-        }
-
+        int count = 0;
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 var items = line.split(" ");
-
-                 
+                count++;
                 if (items.length != 3) {
-                    System.out.println("Ошибка: строка должна содержать 3 поля для Animal.");
+                    System.out.println("Ошибка в "+ count+" элемете файла: строка должна содержать 3 поля для Animal.");
                     continue;
                 }
 
-                 
                 if (items[0].isEmpty() || items[1].isEmpty()) {
-                    System.out.println("Ошибка: Вид животного и цвет глаз не могут быть пустыми.");
+                    System.out.println("Ошибка в "+ count+" элемете файла: Вид животного и цвет глаз не могут быть пустыми.");
                     continue;
                 }
-
 
                 if (!items[2].equalsIgnoreCase("true") && !items[2].equalsIgnoreCase("false")) {
-                    System.out.println("Ошибка: Шерсть должна быть 'true' или 'false'.");
+                    System.out.println("Ошибка в "+ count+" элемете файла: Шерсть должна быть 'true' или 'false'.");
                     continue;
                 }
 
