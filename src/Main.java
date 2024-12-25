@@ -177,13 +177,13 @@ public class Main {
                     "Вы ввели:");
             switch (in.next()) {
                 case "1":
-                    System.out.println(sortHuman.HumanSurnameSort(humans));
+                    humans = sortHuman.HumanSurnameSort(humans);
                     break;
                 case "2":
-                    System.out.println(sortHuman.HumanAgeSort(humans));
+                    humans = sortHuman.HumanAgeSort(humans);
                     break;
                 case "3":
-                    System.out.println(sortHuman.HumanGenderSort(humans));
+                    humans = sortHuman.HumanGenderSort(humans);
                     break;
                 case "4":
                      flag=false;
@@ -207,13 +207,13 @@ public class Main {
                     "Вы ввели:");
             switch (in.next()) {
                 case "1":
-                    System.out.println(sortAnimal.AnimalTypeSort(animals));
+                    animals = sortAnimal.AnimalTypeSort(animals);
                     break;
                 case "2":
-                    System.out.println(sortAnimal.AnimalEyeColorSort(animals));
+                    animals = sortAnimal.AnimalEyeColorSort(animals);
                     break;
                 case "3":
-                    System.out.println(sortAnimal.AnimalFurSort(animals));
+                    animals = sortAnimal.AnimalFurSort(animals);
                     break;
                 case "4":
                     flag=false;
@@ -237,13 +237,13 @@ public class Main {
                     "Вы ввели:");
             switch (in.next()) {
                 case "1":
-                    System.out.println(sortBarrel.BarrelVolumeSort(barrels));
+                    barrels = sortBarrel.BarrelVolumeSort(barrels);
                     break;
                 case "2":
-                    System.out.println(sortBarrel.BarrelMaterialSort(barrels));
+                    barrels = sortBarrel.BarrelMaterialSort(barrels);
                     break;
                 case "3":
-                    System.out.println(sortBarrel.BarrelContentSort(barrels));
+                    barrels = sortBarrel.BarrelContentSort(barrels);
                     break;
                 case "4":
                     flag = false;
@@ -253,4 +253,8 @@ public class Main {
             }
         }
     }
+
+    /*static private void HumanSearch(){
+
+    }*/
 }
