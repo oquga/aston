@@ -234,7 +234,7 @@ public class Main {
                     System.out.println("Провести поиск?: y/n \n");
                     switch (in.next()) {
                         case "y":
-                            System.out.println("Введите Gender:\n");
+                            System.out.println("Введите Gender, Male/Female?:\n");
                             HumanSearch(humans, new Human.HumanBuilder().setGender(in.next()).build(), comparator3);
                             break;
                         default:
@@ -306,7 +306,7 @@ public class Main {
                     System.out.println("Провести поиск?: y/n \n");
                     switch (in.next()) {
                         case "y":
-                            System.out.println("Введите Fur Presence:\n");
+                            System.out.println("Введите Fur Presence, true/false?:\n");
                             AnimalSearch(animals, new Animal.AnimalBuilder().setHasFur(in.nextBoolean()).build(), comparator3);
                             break;
                         default:
