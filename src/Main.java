@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -49,17 +50,17 @@ public class Main {
                         "Вы ввели:");
                 switch (in.next()) {
                     case "1":
-                        ArrayList<Human> humans = manualReader.ManualHumans(amount);
+                        ArrayList<Human> humans = manualReader.readHumans(amount);
                         HumansSort(humans);
                         flag = false;
                         break;
                     case "2":
-                        ArrayList<Animal> animals = manualReader.ManualAnimals(amount);
+                        ArrayList<Animal> animals = manualReader.readAnimals(amount);
                         AnimalsSort(animals);
                         flag = false;
                         break;
                     case "3":
-                        ArrayList<Barrel> barrels = manualReader.ManualBarrels(amount);
+                        ArrayList<Barrel> barrels = manualReader.readBarrels(amount);
                         BarrelsSort(barrels);
                         flag = false;
                         break;
@@ -76,51 +77,64 @@ public class Main {
         }
     }
 
-    static private void File() throws IOException {
+    static private void File() {
         Scanner in = new Scanner(System.in);
         FileReader fileReader = new FileReader();
-        Boolean flag = true;
-        String file = null; // переменная для хранения пути
+        boolean flag = true;
         while (flag) {
-            System.out.println("Введите путь к файлу:");
-            file = in.nextLine();
-
-            if (!fileReader.isValidPath(file)) {
-                System.out.println("Неверный путь к файлу. Пожалуйста, попробуйте снова.");
-                continue; // если путь неверный, просим ввести его снова
-            }
-
-            System.out.print("Выберите вводимый класс:\n" +
-                    "Введите 1 - Human\n" +
-                    "Введите 2 - Animal\n" +
-                    "Введите 3 - Barrel\n" +
-                    "Введите 4 - Назад\n\n" +
-                    "Вы ввели:");
-            switch (in.next()) {
-                case "1":
-                    ArrayList<Human> humans = fileReader.ReadHumans(file); // передаем путь в метод
-                    HumansSort(humans);
-                    flag = false;
-                    break;
-                case "2":
-                    ArrayList<Animal> animals = fileReader.ReadAnimals(file); // передаем путь в метод
-                    AnimalsSort(animals);
-                    flag = false;
-                    break;
-                case "3":
-                    ArrayList<Barrel> barrels = fileReader.ReadBarrels(file); // передаем путь в метод
-                    BarrelsSort(barrels);
-                    flag = false;
-                    break;
-                case "4":
-                    flag = false;
-                    break;
-                default:
-                    System.out.println("Неверный ввод/файл не найден");
+            try {
+                System.out.println("Путь файла:");
+                String file = in.nextLine();
+                File f = new File(file);
+                if (!f.exists() || !f.isFile()) {
+                    System.out.println("Неверный путь к файлу. Попробуйте снова.");
+                    return;
+                }
+                System.out.print("Выберите вводимый класс:\n" +
+                        "Введите 1 - Human\n" +
+                        "Введите 2 - Animal\n" +
+                        "Введите 3 - Barrel\n" +
+                        "Введите 4 - Назад\n\n" +
+                        "Вы ввели:");
+                switch (in.next()) {
+                    case "1":
+                        ArrayList<Human> humans = fileReader.readHumans(file);
+                        if (humans == null) {
+                            System.out.println("Ошибка в формате данных для Human.");
+                            return;
+                        }
+                        HumansSort(humans);
+                        break;
+                    case "2":
+                        ArrayList<Animal> animals = fileReader.readAnimals(file);
+                        if (animals == null) {
+                            System.out.println("Ошибка в формате данных для Animal.");
+                            return;
+                        }
+                        AnimalsSort(animals);
+                        break;
+                    case "3":
+                        ArrayList<Barrel> barrels = fileReader.readBarrels(file);
+                        if (barrels == null) {
+                            System.out.println("Ошибка в формате данных для Barrel.");
+                            return;
+                        }
+                        BarrelsSort(barrels);
+                        break;
+                    case "4":
+                        flag = false;
+                        break;
+                    default:
+                        System.out.println("Неверный ввод. Попробуйте снова.");
+                        break;
+                }
+            } catch (IOException ex1) {
+                System.out.println("Ошибка при работе с файлом: " + ex1.getMessage());
+            } catch (Exception ex2) {
+                System.out.println("Произошла ошибка: " + ex2.getMessage());
             }
         }
     }
-
     static private void Random(){
         Scanner in = new Scanner(System.in);
         RandomReader randomReader = new RandomReader();
