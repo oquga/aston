@@ -151,17 +151,17 @@ public class Main {
                         "Вы ввели:");
                 switch (in.next()) {
                     case "1":
-                        ArrayList<Human> humans = randomReader.RandomHumans(amount);
+                        ArrayList<Human> humans = randomReader.readHumans(amount);
                         HumansSort(humans);
                         flag = false;
                         break;
                     case "2":
-                        ArrayList<Animal> animals = randomReader.RandomAnimals(amount);
+                        ArrayList<Animal> animals = randomReader.readAnimals(amount);
                         AnimalsSort(animals);
                         flag = false;
                         break;
                     case "3":
-                        ArrayList<Barrel> barrels = randomReader.RandomBarrels(amount);
+                        ArrayList<Barrel> barrels = randomReader.readBarrels(amount);
                         BarrelsSort(barrels);
                         flag = false;
                         break;
