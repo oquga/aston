@@ -104,6 +104,7 @@ public class Main {
                             return;
                         }
                         HumansSort(humans);
+                        flag = false;
                         break;
                     case "2":
                         ArrayList<Animal> animals = fileReader.readAnimals(file);
@@ -112,6 +113,7 @@ public class Main {
                             return;
                         }
                         AnimalsSort(animals);
+                        flag = false;
                         break;
                     case "3":
                         ArrayList<Barrel> barrels = fileReader.readBarrels(file);
@@ -120,6 +122,7 @@ public class Main {
                             return;
                         }
                         BarrelsSort(barrels);
+                        flag = false;
                         break;
                     case "4":
                         flag = false;
