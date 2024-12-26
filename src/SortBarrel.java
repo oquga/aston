@@ -1,19 +1,10 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
 class SortBarrel{
-    public ArrayList<Barrel> BarrelVolumeSort(ArrayList<Barrel> barrels){
+    public ArrayList<Barrel> barrelSort(ArrayList<Barrel> barrels, Comparator comparator){
         InsertionSort<Barrel> insertionSort = new InsertionSort<>();
-        insertionSort.perform(barrels, new BarrelVolumeComparator());
-        return barrels;
-    }
-    public ArrayList<Barrel> BarrelMaterialSort(ArrayList<Barrel> barrels){
-        InsertionSort<Barrel> insertionSort = new InsertionSort<>();
-        insertionSort.perform(barrels, new BarrelMaterialComparator());
-        return barrels;
-    }
-    public ArrayList<Barrel> BarrelContentSort(ArrayList<Barrel> barrels){
-        InsertionSort<Barrel> insertionSort = new InsertionSort<>();
-        insertionSort.perform(barrels, new BarrelContentComparator());
+        insertionSort.perform(barrels, comparator);
         return barrels;
     }
 }

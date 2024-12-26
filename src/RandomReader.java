@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 public class RandomReader {
     private final Faker faker = new Faker();
 
-    public ArrayList<Human> RandomHumans(int amount) {
+    public ArrayList<Human> readHumans(int amount) {
         return IntStream.range(0, amount).mapToObj(i -> new Human.HumanBuilder()
                 .setSurname(faker.name().lastName())
                 .setAge(faker.number().numberBetween(1, 100))
@@ -14,7 +14,7 @@ public class RandomReader {
                 .build()).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public ArrayList<Animal> RandomAnimals(int amount) {
+    public ArrayList<Animal> readAnimals(int amount) {
         return IntStream.range(0, amount).mapToObj(i -> new Animal.AnimalBuilder()
                 .setType(faker.animal().name())
                 .setEyeColor(faker.color().name())
@@ -22,7 +22,7 @@ public class RandomReader {
                 .build()).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public ArrayList<Barrel> RandomBarrels(int amount) {
+    public ArrayList<Barrel> readBarrels(int amount) {
         String[] made = {"Wood", "Aluminum", "Steel", "Plastic"};
         String[] cont = {"Grains", "Water", "Honey", "Oil", "Alcohol", "Tobacco", "Vegetables", "Juice", "Methylamine"};
 
