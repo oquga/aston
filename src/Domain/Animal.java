@@ -1,4 +1,4 @@
-import java.util.Comparator;
+package Domain;
 
 public class Animal {
     private final String type;
@@ -50,23 +50,4 @@ public class Animal {
         }
     }
 }
-class AnimalTypeComparator implements Comparator<Animal> {
-    @Override
-    public int compare(Animal o1, Animal o2) {
-        return o1.getType().compareTo(o2.getType());
-    }
-}
 
-class AnimalEyeColorComparator implements Comparator<Animal>{
-    @Override
-    public int compare(Animal o1, Animal o2) {
-        return o1.getEyeColor().compareTo(o2.getEyeColor());
-    }
-}
-
-class AnimalFurComparator implements Comparator<Animal>{
-    @Override
-    public int compare(Animal o1, Animal o2) {
-        return Boolean.compare(o1.getHasFur(),o2.getHasFur());
-    }
-}

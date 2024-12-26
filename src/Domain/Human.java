@@ -1,6 +1,5 @@
-import org.w3c.dom.ls.LSOutput;
+package Domain;
 
-import java.util.Comparator;
 public class Human {
     private final String surname;
     private final int age;
@@ -51,22 +50,4 @@ public class Human {
         }
     }
 }
-class HumanGenderComparator implements Comparator<Human>{
-    @Override
-    public int compare(Human o1, Human o2) {
-        return o1.getGender().compareTo(o2.getGender());
-    }
-}
 
-class HumanSurnameComparator implements Comparator<Human>{
-    @Override
-    public int compare(Human o1, Human o2) {
-        return o1.getSurname().compareTo(o2.getSurname());
-    }
-}
-class HumanAgeComparator implements Comparator<Human>{
-    @Override
-    public int compare(Human o1, Human o2) {
-        return Integer.compare(o1.getAge(),o2.getAge());
-    }
-}

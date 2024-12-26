@@ -1,12 +1,18 @@
+package Readers;
+
+import Domain.Animal;
+import Domain.Barrel;
+import Domain.Human;
+import Interfaces.Reader;
 import com.github.javafaker.Faker;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class RandomReader {
+public class RandomReader implements Reader {
     private final Faker faker = new Faker();
 
-    public ArrayList<Human> readHumans(int amount) {
+    public ArrayList<Human> getHumans(int amount) {
         return IntStream.range(0, amount).mapToObj(i -> new Human.HumanBuilder()
                 .setSurname(faker.name().lastName())
                 .setAge(faker.number().numberBetween(1, 100))
@@ -14,7 +20,7 @@ public class RandomReader {
                 .build()).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public ArrayList<Animal> readAnimals(int amount) {
+    public ArrayList<Animal> getAnimals(int amount) {
         return IntStream.range(0, amount).mapToObj(i -> new Animal.AnimalBuilder()
                 .setType(faker.animal().name())
                 .setEyeColor(faker.color().name())
@@ -22,7 +28,7 @@ public class RandomReader {
                 .build()).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public ArrayList<Barrel> readBarrels(int amount) {
+    public ArrayList<Barrel> getBarrels(int amount) {
         String[] made = {"Wood", "Aluminum", "Steel", "Plastic"};
         String[] cont = {"Grains", "Water", "Honey", "Oil", "Alcohol", "Tobacco", "Vegetables", "Juice", "Methylamine"};
 

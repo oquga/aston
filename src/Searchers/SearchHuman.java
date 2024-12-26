@@ -1,10 +1,14 @@
+package Searchers;
+
+import Algorithms.BinarySearch;
+import Domain.Human;
+import Interfaces.Searcher;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class SearchHuman {
-    public int humanSearch(ArrayList<Human> humans, Human searchHuman, Comparator comparator1){
-        BinarySearch binarySearch = new BinarySearch();
-        int index = binarySearch.perform(humans, searchHuman, comparator1);
-        return index;
+public class SearchHuman implements Searcher<Human> {
+    public int search(ArrayList<Human> humans, Human searchHuman, Comparator<Human> comparator){
+        return BinarySearch.perform(humans, searchHuman, comparator);
     }
 }

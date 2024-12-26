@@ -1,10 +1,14 @@
+package Searchers;
+
+import Domain.Barrel;
+import Algorithms.BinarySearch;
+import Interfaces.Searcher;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class SearchBarrel {
-    public int barrelSearch(ArrayList<Barrel> barrels, Barrel serachBarrel, Comparator comparator1){
-        BinarySearch binarySearch = new BinarySearch();
-        int index = binarySearch.perform(barrels, serachBarrel, comparator1);
-        return index;
+public class SearchBarrel implements Searcher<Barrel> {
+    public int search(ArrayList<Barrel> barrels, Barrel serachBarrel, Comparator<Barrel> comparator){
+        return BinarySearch.perform(barrels, serachBarrel, comparator);
     }
 }

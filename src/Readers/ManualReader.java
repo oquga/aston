@@ -1,9 +1,12 @@
+package Readers;
+
+import Domain.*;
+import Interfaces.Reader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ManualReader {
-
-    public ArrayList<Human> readHumans(int amount) {
+public class ManualReader implements Reader {
+    public ArrayList<Human> getHumans(int amount) {
         ArrayList<Human> humans = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         System.out.println("Вводите информацию в формате \"Johnson 21 Male\" " + amount + " раз:");
@@ -46,7 +49,7 @@ public class ManualReader {
         return humans;
     }
 
-    public ArrayList<Animal> readAnimals(int amount) {
+    public ArrayList<Animal> getAnimals(int amount) {
         ArrayList<Animal> animals = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         System.out.println("Вводите информацию в формате \"Dog Brown True\" " + amount + " раз:");
@@ -90,7 +93,7 @@ public class ManualReader {
         return animals;
     }
 
-    public ArrayList<Barrel> readBarrels(int amount) {
+    public ArrayList<Barrel> getBarrels(int amount) {
         ArrayList<Barrel> barrels = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         System.out.println("Вводите информацию в формате \"2.2 Wood Grain\" " + amount + " раз:");

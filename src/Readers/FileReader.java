@@ -1,3 +1,9 @@
+package Readers;
+
+import Domain.Animal;
+import Domain.Barrel;
+import Domain.Human;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;

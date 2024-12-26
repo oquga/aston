@@ -1,10 +1,14 @@
+package Searchers;
+
+import Algorithms.BinarySearch;
+import Domain.Animal;
+import Interfaces.Searcher;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class SearchAnimal {
-    public int animalSearch(ArrayList<Animal> animals, Animal searchAnimal, Comparator comparator1){
-        BinarySearch binarySearch = new BinarySearch();
-        int index = binarySearch.perform(animals, searchAnimal, comparator1);
-        return index;
+public class SearchAnimal implements Searcher<Animal> {
+    public int search(ArrayList<Animal> animals, Animal searchAnimal, Comparator<Animal> comparator) {
+        return BinarySearch.perform(animals, searchAnimal, comparator);
     }
 }

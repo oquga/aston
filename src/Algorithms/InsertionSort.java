@@ -1,9 +1,10 @@
+package Algorithms;
+
 import java.util.Comparator;
 import java.util.List;
 
 public class InsertionSort<T> {
-
-    public void perform(List<T> list, Comparator<T> comparator){
+    public void perform(List<T> list, Comparator<T> comparator) {
         for (int i = 1; i < list.size(); i++) {
             T currentElement = (T) list.get(i);
             int j = i;
@@ -16,6 +17,4 @@ public class InsertionSort<T> {
             list.set(j, currentElement); // Insert current element at correct position
         }
     }
-
-
 }
