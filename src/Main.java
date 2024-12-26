@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -194,13 +191,55 @@ public class Main {
                     "Вы ввели:");
             switch (in.next()) {
                 case "1":
-                    humans = sortHuman.HumanSurnameSort(humans);
+                    Comparator comparator1 = new HumanSurnameComparator();
+                    humans = sortHuman.humanSort(humans, comparator1);
+                    System.out.println("Sorted by Surname:");
+                    for (Human human : humans) {
+                        System.out.println("Surname: " + human.getSurname() + ", Age: " + human.getAge() + ", Gender: " + human.getGender());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Surname:\n");
+                            HumanSearch(humans, new Human.HumanBuilder().setSurname(in.nextLine()).build(), comparator1);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "2":
-                    humans = sortHuman.HumanAgeSort(humans);
+                    Comparator comparator2 = new HumanAgeComparator();
+                    humans = sortHuman.humanSort(humans, comparator2);
+                    System.out.println("Sorted by Age:");
+                    for (Human human : humans) {
+                        System.out.println("Surname: " + human.getSurname() + ", Age: " + human.getAge() + ", Gender: " + human.getGender());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Age:\n");
+                            HumanSearch(humans, new Human.HumanBuilder().setAge(in.nextInt()).build(), comparator2);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "3":
-                    humans = sortHuman.HumanGenderSort(humans);
+                    Comparator comparator3 = new HumanGenderComparator();
+                    humans = sortHuman.humanSort(humans, comparator3);
+                    System.out.println("Sorted by Gender:");
+                    for (Human human : humans) {
+                        System.out.println("Surname: " + human.getSurname() + ", Age: " + human.getAge() + ", Gender: " + human.getGender());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Gender:\n");
+                            HumanSearch(humans, new Human.HumanBuilder().setGender(in.nextLine()).build(), comparator3);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "4":
                      flag=false;
@@ -224,13 +263,55 @@ public class Main {
                     "Вы ввели:");
             switch (in.next()) {
                 case "1":
-                    animals = sortAnimal.AnimalTypeSort(animals);
+                    Comparator comparator1 = new AnimalTypeComparator();
+                    animals = sortAnimal.animalSort(animals, comparator1);
+                    System.out.println("Animals sorted by Type:");
+                    for (Animal animal : animals) {
+                        System.out.println("Type: "+animal.getType() + ", Eye Color: " + animal.getEyeColor() + ", Has Fur: " + animal.getHasFur());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Type:\n");
+                            AnimalSearch(animals, new Animal.AnimalBuilder().setType(in.nextLine()).build(), comparator1);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "2":
-                    animals = sortAnimal.AnimalEyeColorSort(animals);
+                    Comparator comparator2 = new AnimalEyeColorComparator();
+                    animals = sortAnimal.animalSort(animals, comparator2);
+                    System.out.println("Animals sorted by Eye Color:");
+                    for (Animal animal : animals) {
+                        System.out.println("Type: "+animal.getType() + ", Eye Color: " + animal.getEyeColor() + ", Has Fur: " + animal.getHasFur());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Eye Color:\n");
+                            AnimalSearch(animals, new Animal.AnimalBuilder().setEyeColor(in.nextLine()).build(), comparator2);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "3":
-                    animals = sortAnimal.AnimalFurSort(animals);
+                    Comparator comparator3 = new AnimalFurComparator();
+                    animals = sortAnimal.animalSort(animals, comparator3);
+                    System.out.println("Animals sorted by Fur Presence:");
+                    for (Animal animal : animals) {
+                        System.out.println("Type: "+animal.getType() + ", Eye Color: " + animal.getEyeColor() + ", Has Fur: " + animal.getHasFur());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Fur Presence:\n");
+                            AnimalSearch(animals, new Animal.AnimalBuilder().setHasFur(in.nextBoolean()).build(), comparator3);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "4":
                     flag=false;
@@ -254,13 +335,55 @@ public class Main {
                     "Вы ввели:");
             switch (in.next()) {
                 case "1":
-                    barrels = sortBarrel.BarrelVolumeSort(barrels);
+                    Comparator comparator1 = new BarrelVolumeComparator();
+                    barrels = sortBarrel.barrelSort(barrels, comparator1);
+                    System.out.println("Sorted by Volume:");
+                    for (Barrel barrel : barrels) {
+                        System.out.println("Volume: " + barrel.getVolume() + " liters, Material: " + barrel.getMaterial() + ", Content: " + barrel.getContent());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Volume:\n");
+                            BarrelSearch(barrels, new Barrel.BarrelBuilder().setVolume(in.nextDouble()).build(), comparator1);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "2":
-                    barrels = sortBarrel.BarrelMaterialSort(barrels);
+                    Comparator comparator2 = new BarrelMaterialComparator();
+                    barrels = sortBarrel.barrelSort(barrels, comparator2);
+                    System.out.println("Sorted by Material:");
+                    for (Barrel barrel : barrels) {
+                        System.out.println("Volume: " + barrel.getVolume() + " liters, Material: " + barrel.getMaterial() + ", Content: " + barrel.getContent());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Material:\n");
+                            BarrelSearch(barrels, new Barrel.BarrelBuilder().setMaterial(in.nextLine()).build(), comparator2);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "3":
-                    barrels = sortBarrel.BarrelContentSort(barrels);
+                    Comparator comparator3= new BarrelContentComparator();
+                    barrels = sortBarrel.barrelSort(barrels, comparator3);
+                    System.out.println("Sorted by Contents:");
+                    for (Barrel barrel : barrels) {
+                        System.out.println("Volume: " + barrel.getVolume() + " liters, Material: " + barrel.getMaterial() + ", Content: " + barrel.getContent());
+                    }
+                    System.out.println("Провести поиск?: y/n \n");
+                    switch (in.next()) {
+                        case "y":
+                            System.out.println("Введите Content:\n");
+                            BarrelSearch(barrels, new Barrel.BarrelBuilder().setContent(in.nextLine()).build(), comparator3);
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case "4":
                     flag = false;
@@ -271,7 +394,38 @@ public class Main {
         }
     }
 
-    /*static private void HumanSearch(){
+    static private void HumanSearch(ArrayList<Human> humans, Human searching, Comparator comparator){
+        SearchHuman searchHuman = new SearchHuman();
+        int index = searchHuman.humanSearch(humans, searching, comparator);
+        if (index != -1){
+            System.out.println("\nНомер человека в коллекции " + index + "\n" +
+                    "Surname: " + humans.get(index).getSurname() +
+                    ", Age: " + humans.get(index).getAge() +
+                    ", Gender: " + humans.get(index).getGender());
+        }
+        else System.out.println("Человек не найден");
+    }
+    static private void AnimalSearch(ArrayList<Animal> animals, Animal searhcing, Comparator comparator){
+        SearchAnimal searchAnimal = new SearchAnimal();
+        int index = searchAnimal.animalSearch(animals, searhcing, comparator);
+        if (index != -1){
+            System.out.println("\nНомер животного в коллекции " + index + "\n" +
+                    "Type: " + animals.get(index).getType() +
+                    ", Eye Color: " + animals.get(index).getEyeColor() +
+                    ", Fur Presence: " + animals.get(index).getHasFur());
+        }
+        else System.out.println("Животное не найдено");
+    }
+    static private void BarrelSearch(ArrayList<Barrel> barrels, Barrel searching, Comparator comparator){
+        SearchBarrel searchBarrel = new SearchBarrel();
+        int index = searchBarrel.barrelSearch(barrels, searching, comparator);
+        if (index != -1){
+            System.out.println("\nНомер бочки в коллекции " + index + "\n" +
+                    "Volume: " + barrels.get(index).getVolume() +
+                    ", Material: " + barrels.get(index).getMaterial() +
+                    ", Content: " + barrels.get(index).getContent());
+        }
+        else System.out.println("Бочка не найдена");
+    }
 
-    }*/
 }

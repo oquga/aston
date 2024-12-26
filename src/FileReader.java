@@ -9,7 +9,7 @@ public class FileReader {
         ArrayList<Human> humans = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(fileName))) {
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null ) {
                 var items = line.split(" ");
                 humans.add(new Human.HumanBuilder()
                         .setSurname(items[0])
