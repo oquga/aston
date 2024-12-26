@@ -206,7 +206,7 @@ public class Main {
                     switch (in.next()) {
                         case "y":
                             System.out.println("Введите Surname:\n");
-                            HumanSearch(humans, new Human.HumanBuilder().setSurname(in.nextLine()).build(), comparator1);
+                            HumanSearch(humans, new Human.HumanBuilder().setSurname(in.next()).build(), comparator1);
                             break;
                         default:
                             break;
@@ -240,7 +240,7 @@ public class Main {
                     switch (in.next()) {
                         case "y":
                             System.out.println("Введите Gender:\n");
-                            HumanSearch(humans, new Human.HumanBuilder().setGender(in.nextLine()).build(), comparator3);
+                            HumanSearch(humans, new Human.HumanBuilder().setGender(in.next()).build(), comparator3);
                             break;
                         default:
                             break;
@@ -278,7 +278,7 @@ public class Main {
                     switch (in.next()) {
                         case "y":
                             System.out.println("Введите Type:\n");
-                            AnimalSearch(animals, new Animal.AnimalBuilder().setType(in.nextLine()).build(), comparator1);
+                            AnimalSearch(animals, new Animal.AnimalBuilder().setType(in.next()).build(), comparator1);
                             break;
                         default:
                             break;
@@ -295,7 +295,7 @@ public class Main {
                     switch (in.next()) {
                         case "y":
                             System.out.println("Введите Eye Color:\n");
-                            AnimalSearch(animals, new Animal.AnimalBuilder().setEyeColor(in.nextLine()).build(), comparator2);
+                            AnimalSearch(animals, new Animal.AnimalBuilder().setEyeColor(in.next()).build(), comparator2);
                             break;
                         default:
                             break;
@@ -367,7 +367,7 @@ public class Main {
                     switch (in.next()) {
                         case "y":
                             System.out.println("Введите Material:\n");
-                            BarrelSearch(barrels, new Barrel.BarrelBuilder().setMaterial(in.nextLine()).build(), comparator2);
+                            BarrelSearch(barrels, new Barrel.BarrelBuilder().setMaterial(in.next()).build(), comparator2);
                             break;
                         default:
                             break;
@@ -384,7 +384,7 @@ public class Main {
                     switch (in.next()) {
                         case "y":
                             System.out.println("Введите Content:\n");
-                            BarrelSearch(barrels, new Barrel.BarrelBuilder().setContent(in.nextLine()).build(), comparator3);
+                            BarrelSearch(barrels, new Barrel.BarrelBuilder().setContent(in.next()).build(), comparator3);
                             break;
                         default:
                             break;
